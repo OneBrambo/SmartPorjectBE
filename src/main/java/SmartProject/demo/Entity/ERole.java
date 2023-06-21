@@ -1,6 +1,6 @@
 package SmartProject.demo.Entity;
 
-public enum Rule {
+public enum ERole {
     Admin,
     FixedUser,
     User;

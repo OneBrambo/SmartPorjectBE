@@ -5,11 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.dialect.function.TruncFunction;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Users")
@@ -24,14 +23,26 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
-    private Date birthday;
     private String site;
-    private Long phoneNumber;
-    private String email;
-    private String sex;
-    private Enum rule;
+    private String phoneNumber;
+    private String username;
+    private String password;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_role"))
+    private Set<Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "userSeatsId")
     private List<Seat> idSeats;
 
+    public User(String firstName, String lastName, String site, String phoneNumber, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.site = site;
+        this.phoneNumber = phoneNumber;
+        this.username = username;
+        this.password = password;
+    }
 }

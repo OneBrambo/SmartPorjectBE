@@ -20,9 +20,9 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String numberSeats;
+    private String seatCode;
     private Date reservationDate;
-    private boolean aviable;
+    private boolean available;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

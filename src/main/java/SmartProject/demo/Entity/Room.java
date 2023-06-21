@@ -21,8 +21,6 @@ public class Room {
     private Long id;
     private String nameRoom;
     private Integer totalNumberSeats;
-    private Integer numberSeatsBooked;
-    private Integer numberFreeSeats;
 
     @OneToMany(mappedBy = "roomSeatsId")
     private List<Seat> idRoom;
