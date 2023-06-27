@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
-@Table(name = "Seats")
+@Table(name = "seats")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,14 +22,15 @@ public class Seat {
     private Long id;
 
     private String seatCode;
-    private Date reservationDate;
+    private String rotation;
+    private String position_top;
+    private String position_left;
     private boolean available;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User userSeatsId;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room roomSeatsId;
+
+    @OneToMany(mappedBy = "seatId")
+    private List<UserSeat> idUserSeat;
 }
