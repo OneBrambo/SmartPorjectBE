@@ -21,6 +21,6 @@ public class Sede {
 
     private SedeEnum location;
 
-    @OneToMany(mappedBy = "idSedeRoom")
+    @OneToMany(mappedBy = "idSede")
     private List<Room> rooms;
 }
