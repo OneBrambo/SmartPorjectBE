@@ -22,6 +22,7 @@ public class Seat {
     private Long id;
 
     private String seatCode;
+    private String label;
     private String rotation;
     private String position_top;
     private String position_left;
