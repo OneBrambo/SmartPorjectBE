@@ -29,6 +29,6 @@ public class Room {
 
     @ManyToOne
     @JoinColumn(name = "id_sede")
-    private Sede idSedeRoom;
+    private Sede idSede;
 
 }
