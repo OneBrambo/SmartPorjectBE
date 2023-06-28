@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,6 +25,7 @@ public class User {
     private String lastName;
     private String site;
     private String phoneNumber;
+    @Column(unique = true)
     private String username;
     private String password;
 
@@ -34,8 +35,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "id_role"))
     private Set<Role> roles = new HashSet<>();
 
-    @OneToMany(mappedBy = "userSeatsId")
-    private List<Seat> idSeats;
+    @OneToMany(mappedBy = "userId")
+    private List<UserSeat> idSeats;
 
     public User(String firstName, String lastName, String site, String phoneNumber, String username, String password) {
         this.firstName = firstName;

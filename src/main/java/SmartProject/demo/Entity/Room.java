@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Table(name = "Rooms")
+@Table(name = "rooms")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -21,8 +21,14 @@ public class Room {
     private Long id;
     private String nameRoom;
     private Integer totalNumberSeats;
+    private String width;
+    private String height;
 
     @OneToMany(mappedBy = "roomSeatsId")
     private List<Seat> idRoom;
+
+    @ManyToOne
+    @JoinColumn(name = "id_sede")
+    private Sede idSedeRoom;
 
 }
