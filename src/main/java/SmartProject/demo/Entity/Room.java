@@ -31,4 +31,16 @@ public class Room {
     @JoinColumn(name = "id_sede")
     private Sede idSede;
 
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", nameRoom='" + nameRoom + '\'' +
+                ", totalNumberSeats=" + totalNumberSeats +
+                ", width='" + width + '\'' +
+                ", height='" + height + '\'' +
+                ", idRoom=" + idRoom +
+                ", idSede=" + idSede +
+                '}';
+    }
 }
