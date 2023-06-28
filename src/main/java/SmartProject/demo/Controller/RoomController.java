@@ -23,8 +23,9 @@ public class RoomController {
     private RoomMapper roomMapper;
 
     @PostMapping("/api/addRoom")
-    public Room addRoom(@RequestBody Room newRoom){
-        return roomRepository.save(newRoom);
+    public ResponseEntity<List<RoomDto>> addRoom(@RequestBody Room newRoom){
+        roomRepository.save(newRoom);
+        return getRooms();
     }
 
     @GetMapping("/api/getRooms")

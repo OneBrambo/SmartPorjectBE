@@ -31,6 +31,7 @@ public class UserController {
     public ResponseEntity<List<UserDto>> getAllUsers(){
         Optional<List<User>> users = Optional.ofNullable((List<User>) userRepository.findAll());
         if(users.isPresent()){
+            System.out.println((userMapper.toDtoList(users.get())).toString());
             return new ResponseEntity<>(userMapper.toDtoList(users.get()), HttpStatus.OK);
         }
         else return ResponseEntity.notFound().build();
