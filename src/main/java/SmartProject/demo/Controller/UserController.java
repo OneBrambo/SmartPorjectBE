@@ -27,6 +27,11 @@ public class UserController {
         userRepository.updateUser(userUpdate.getId(), userUpdate.getFirstName(), userUpdate.getLastName(), userUpdate.getUsername(), userUpdate.getPhoneNumber(), userUpdate.getSite());
     }
 
+    @DeleteMapping(value = "api/deleteUser/{id}")
+    public void deleteUser(@PathVariable("id")long id){
+        userRepository.deleteById(id);
+    }
+
     @GetMapping(value = "/api/getAllUsers")
     public ResponseEntity<List<UserDto>> getAllUsers(){
         Optional<List<User>> users = Optional.ofNullable((List<User>) userRepository.findAll());

@@ -36,4 +36,14 @@ public class RoomController {
         }
         else return ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping(value = "/api/deleteRoom/{id}")
+    public void deleteRoom(@PathVariable("id") long id){
+        roomRepository.deleteById(id);
+    }
+
+//    @PutMapping(value = "/api/modifyRoom",consumes = {"application/json"} )
+//    public void UpdateRoom(@RequestBody Room roomUpdate){
+//        roomRepository.updateRoom(roomUpdate.getId(),roomUpdate.getNameRoom(),roomUpdate.getTotalNumberSeats(),roomUpdate.getWidth(),roomUpdate.getHeight());
+//    }
 }

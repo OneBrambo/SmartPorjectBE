@@ -12,7 +12,7 @@ public interface SeatRepository extends CrudRepository<Seat, Long> {
             "SET position_left = :position_left, " +
             "position_top = :position_top, " +
             "rotation = :rotation, " +
-            "label = :lable " +
+            "label = :lable, " +
             "WHERE id = :id", nativeQuery = true)
 
     @Modifying
