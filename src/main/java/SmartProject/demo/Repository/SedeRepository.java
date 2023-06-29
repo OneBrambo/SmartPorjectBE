@@ -15,7 +15,7 @@ public interface SedeRepository extends CrudRepository<Sede, Long> {
 
     @Modifying
     @Transactional
-    void updateSede(Long idSede, String location);
+    void updateSede(Long idSede, SedeEnum location);
 
 
 
