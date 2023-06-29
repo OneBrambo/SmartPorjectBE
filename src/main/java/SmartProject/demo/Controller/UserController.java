@@ -16,4 +16,9 @@ public class UserController {
     public void UpdateUser(@RequestBody User userUpdate) {
         userRepository.updateUser(userUpdate.getId(), userUpdate.getFirstName(), userUpdate.getLastName(), userUpdate.getUsername(), userUpdate.getPhoneNumber(), userUpdate.getSite());
     }
+
+    @DeleteMapping(value = "api/deleteUser/{id}")
+    public void deleteUser(@PathVariable("id")long id){
+        userRepository.deleteById(id);
+    }
 }
