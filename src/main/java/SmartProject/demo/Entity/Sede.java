@@ -19,7 +19,7 @@ public class Sede {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSede;
 
-    private String location;
+    private SedeEnum location;
 
     @OneToMany(mappedBy = "idSede")
     private List<Room> rooms;
